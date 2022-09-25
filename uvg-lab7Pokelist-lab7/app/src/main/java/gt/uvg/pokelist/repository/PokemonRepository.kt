@@ -26,5 +26,5 @@ object PokemonRepository {
 
 interface ApiService {
     @GET("pokemon")
-    fun fetchPokemon(@Query("limit") limit:String): Call<PokemonResponse>
+    fun fetchPokemon(@Query("limit=") limit:String): Call<PokemonResponse>
 }

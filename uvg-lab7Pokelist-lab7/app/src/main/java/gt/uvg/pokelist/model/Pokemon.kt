@@ -19,7 +19,7 @@ data class Pokemon(
         return str.substring(0, str.length - n)
     }
 
-    private val id: Int = Integer.valueOf(removeLastNchars(url2, 1))
+    val id: Int = Integer.valueOf(removeLastNchars(url2, 1))
 
     val imageUrlFront: String get() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$id.png"
     val imageUrlBack: String get() = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/$id.png"

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import gt.uvg.pokelist.databinding.FragmentMainBinding
-import gt.uvg.pokelist.model.Pokemon
 import gt.uvg.pokelist.model.PokemonResponse
 import gt.uvg.pokelist.repository.PokemonRepository
 import retrofit2.Call

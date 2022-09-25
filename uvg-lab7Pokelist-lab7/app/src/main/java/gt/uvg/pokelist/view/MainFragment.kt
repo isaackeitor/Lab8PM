@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import gt.uvg.pokelist.databinding.FragmentMainBinding
+import gt.uvg.pokelist.model.Pokemon
 import gt.uvg.pokelist.model.PokemonResponse
 import gt.uvg.pokelist.repository.PokemonRepository
 import retrofit2.Call
@@ -30,8 +31,7 @@ class MainFragment: Fragment() {
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val client = PokemonRepository.apiService.fetchPokemon("100")
         client.enqueue(object : Callback<PokemonResponse> {
 
@@ -41,6 +41,11 @@ class MainFragment: Fragment() {
             ){
                 if (response.isSuccessful){
                     Log.d("Pokemon",""+response.body())
+                    val pokemonList = response.body()?.result
+                    recyclerView = binding.recyclerView
+                    recyclerView.layoutManager = LinearLayoutManager(context)
+                    //recyclerView.layoutManager = GridLayoutManager(context, 2)
+                    recyclerView.adapter = PokemonListAdapter(pokemonList!!)
                 }
                 //Toast.makeText(requireContext(), "FETCHED: " + response.body(), Toast.LENGTH_LONG).show()
             }
@@ -49,14 +54,6 @@ class MainFragment: Fragment() {
                 Log.e("failed",""+t.message)
             }
         })
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //val pokemonList = PokemonRepository().getPokemonList()
-        recyclerView = binding.recyclerView
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        //recyclerView.layoutManager = GridLayoutManager(context, 2)
-        //recyclerView.adapter = PokemonListAdapter(pokemonList)
     }
 
     override fun onDestroyView() {

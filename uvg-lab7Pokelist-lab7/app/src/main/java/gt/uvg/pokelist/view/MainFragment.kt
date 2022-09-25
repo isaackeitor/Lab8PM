@@ -45,8 +45,9 @@ class MainFragment: Fragment() {
                     recyclerView.layoutManager = LinearLayoutManager(context)
                     //recyclerView.layoutManager = GridLayoutManager(context, 2)
                     recyclerView.adapter = PokemonListAdapter(pokemonList!!)
+                    Toast.makeText(requireContext(), "FETCHED: " +pokemonList.size, Toast.LENGTH_LONG).show()
                 }
-                Toast.makeText(requireContext(), "FETCHED: " + response.body(), Toast.LENGTH_LONG).show()
+
             }
             override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "ERROR", Toast.LENGTH_LONG).show()

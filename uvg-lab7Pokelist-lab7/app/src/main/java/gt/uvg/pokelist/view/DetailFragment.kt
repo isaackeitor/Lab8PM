@@ -52,13 +52,16 @@ class DetailFragment : Fragment() {
                 if (response.isSuccessful){
                     Log.d("Pokemon",""+response.body())
                     val pokemonList = response.body()?.result
+                    val position = pokemonList!!.get(pokemonId-1)
+                    val name = position.name
                     val character = pokemonList?.find{it.id == pokemonId}
                     Picasso.get().load(character!!.imageUrlFront).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView2)
                     Picasso.get().load(character.imageUrlBack).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView3)
                     Picasso.get().load(character.imageUrlShinnyFront).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView4)
                     Picasso.get().load(character.imageUrlShinnyBack).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView5)
+                    Toast.makeText(requireContext(), "FETCHED: $name", Toast.LENGTH_LONG).show()
                 }
-                Toast.makeText(requireContext(), "FETCHED: " + response.body()!!, Toast.LENGTH_LONG).show()
+
             }
             override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "ERROR", Toast.LENGTH_LONG).show()

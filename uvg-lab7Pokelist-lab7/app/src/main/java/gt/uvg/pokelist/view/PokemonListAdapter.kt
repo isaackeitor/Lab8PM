@@ -22,7 +22,7 @@ class PokemonListAdapter(private val pokemonList: List<Pokemon>) : RecyclerView.
         Picasso.get().load(character.imageUrlFront).into(holder.binding.pokemonPhoto)
 
         holder.binding.root.setOnClickListener{
-            //val action = MainFragmentDirections.actionMainFragmentToDetailFragment(character.url)
+            //val action = MainFragmentDirections.actionMainFragmentToDetailFragment()
             //holder.itemView.findNavController().navigate(action)
         }
     }

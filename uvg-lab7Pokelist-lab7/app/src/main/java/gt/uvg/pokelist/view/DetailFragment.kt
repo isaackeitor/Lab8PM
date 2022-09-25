@@ -58,7 +58,7 @@ class DetailFragment : Fragment() {
                     Picasso.get().load(character.imageUrlShinnyFront).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView4)
                     Picasso.get().load(character.imageUrlShinnyBack).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView5)
                 }
-                Toast.makeText(requireContext(), "FETCHED: " + response.body(), Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "FETCHED: " + response.body()!!, Toast.LENGTH_LONG).show()
             }
             override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "ERROR", Toast.LENGTH_LONG).show()

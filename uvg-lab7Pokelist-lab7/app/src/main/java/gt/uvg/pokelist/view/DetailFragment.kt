@@ -55,6 +55,11 @@ class DetailFragment : Fragment() {
                     val position = pokemonList!!.get(pokemonId-1)
                     val name = position.name
                     val character = pokemonList?.find{it.id == pokemonId}
+                    //Picasso.get().load(character!!.imageUrlFront).into(binding.imageView2)
+                    //Picasso.get().load(character.imageUrlBack).into(binding.imageView3)
+                    //Picasso.get().load(character.imageUrlShinnyFront).into(binding.imageView4)
+                    //Picasso.get().load(character.imageUrlShinnyBack).into(binding.imageView5)
+
                     Picasso.get().load(character!!.imageUrlFront).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView2)
                     Picasso.get().load(character.imageUrlBack).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView3)
                     Picasso.get().load(character.imageUrlShinnyFront).placeholder(R.drawable.image_not_found).error(R.drawable.image_not_found).into(binding.imageView4)

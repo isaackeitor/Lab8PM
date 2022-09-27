@@ -45,6 +45,7 @@ class MainFragment: Fragment() {
                     recyclerView.layoutManager = LinearLayoutManager(context)
                     //recyclerView.layoutManager = GridLayoutManager(context, 2)
                     recyclerView.adapter = PokemonListAdapter(pokemonList!!)
+
                     Toast.makeText(requireContext(), "FETCHED: " +pokemonList.size, Toast.LENGTH_LONG).show()
                 }
 

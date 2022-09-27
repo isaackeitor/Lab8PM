@@ -5,4 +5,6 @@
     <string name="detail_back_title">Back</string>
     <string name="detail_front_shinny_title">Front Shinny</string>
     <string name="detail_back_shinny_title">Back Shinny</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

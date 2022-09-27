@@ -50,7 +50,7 @@ class DetailFragment : Fragment() {
                 response: Response<PokemonResponse>
             ){
                 if (response.isSuccessful){
-                    Log.d("Pokemon",""+response.body())
+                    //Log.d("Pokemon",""+response.body())
                     val pokemonList = response.body()?.result
                     val position = pokemonList!!.get(pokemonId-1)
                     val name = position.name

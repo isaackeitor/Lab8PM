@@ -39,7 +39,7 @@ class MainFragment: Fragment() {
                 response: Response<PokemonResponse>
             ){
                 if (response.isSuccessful){
-                    Log.d("Pokemon",""+response.body())
+                    //Log.d("Pokemon",""+response.body())
                     val pokemonList = response.body()?.result
                     recyclerView = binding.recyclerView
                     recyclerView.layoutManager = LinearLayoutManager(context)
@@ -51,7 +51,7 @@ class MainFragment: Fragment() {
             }
             override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
                 Toast.makeText(requireContext(), "ERROR", Toast.LENGTH_LONG).show()
-                Log.e("failed",""+t.message)
+                //Log.e("failed",""+t.message)
             }
         })
     }

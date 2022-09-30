@@ -45,6 +45,8 @@ class MainFragment: Fragment() {
                     recyclerView.layoutManager = LinearLayoutManager(context)
                     //recyclerView.layoutManager = GridLayoutManager(context, 2)
                     recyclerView.adapter = PokemonListAdapter(pokemonList!!)
+                    binding.progressBar.visibility = View.GONE
+                    binding.recyclerView.visibility = View.VISIBLE
 
                     Toast.makeText(requireContext(), "FETCHED: " +pokemonList.size, Toast.LENGTH_LONG).show()
                 }
